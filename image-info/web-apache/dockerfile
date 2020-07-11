@@ -1,0 +1,9 @@
+FROM httpd:2.4
+
+COPY ./public-html/ /usr/local/apache2/htdocs/
+
+# FOR LOAD BALANCING
+# SEE - https://httpd.apache.org/docs/2.4/mod/mod_proxy_balancer.html
+COPY ./conf/        /usr/local/apache2/conf/
+RUN ["echo", "", ">>", "/usr/local/apache2/conf/httpd.conf"]
+RUN ["echo", "'Include conf/load-balancer.conf'", ">>", "/usr/local/apache2/conf/httpd.conf"]

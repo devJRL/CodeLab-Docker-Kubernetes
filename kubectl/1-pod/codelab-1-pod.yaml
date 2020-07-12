@@ -1,4 +1,4 @@
-# NOTE: https://github.com/devJRL/CodeLab-Docker-Kubernetes/tree/master/kubectl#pod
+# NOTE: https://github.com/devJRL/CodeLab-Docker-Kubernetes/tree/master/kubectl/1-pod#pod
 apiVersion: v1
 kind: Pod
 metadata:

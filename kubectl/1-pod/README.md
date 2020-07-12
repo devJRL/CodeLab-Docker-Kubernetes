@@ -4,12 +4,16 @@ How to deal with container on `Pod` with `YAML`(Menifest-file)?
 
 ## Apply pod to k8s
 
-- Apply on Menifest-file
+- Apply with Menifest-file
   ```bash
   # kubectl apply -f {menifest-file.yaml}
     kubectl apply -f codelab-1-pod.yaml
+      # pod/codelab-simple-pod created
+  ```
 
-  # kubectl get {resources[,resources,..]}
+- Check
+  ```bash
+  # kubectl get {api-resources[,api-resources,..]}
     kubectl get pods
       # NAME                     READY   STATUS    RESTARTS   AGE
       # pod/codelab-simple-pod   2/2     Running   0          4s
@@ -51,8 +55,8 @@ How to deal with container on `Pod` with `YAML`(Menifest-file)?
 ## Delete pod
 
 ```bash
-# kubectl delte -f {menifest-file.yaml}
-  kubectl delte -f codelab-1-pod.yaml
+# kubectl delete -f {menifest-file.yaml}
+  kubectl delete -f codelab-1-pod.yaml
 ```
 
 ### fin.

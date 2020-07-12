@@ -6,3 +6,5 @@ This note will help you with questions about how to deal with the kubernetis res
 
 1. [Pod](https://github.com/devJRL/CodeLab-Docker-Kubernetes/tree/master/kubectl/1-pod#pod) - 
    [menifest-file(yaml)](https://github.com/devJRL/CodeLab-Docker-Kubernetes/blob/master/kubectl/1-pod/codelab-1-pod.yaml#L3)
+2. [Ingress & Service](https://github.com/devJRL/CodeLab-Docker-Kubernetes/tree/master/kubectl/2-ingress#ingress) - 
+   [menifest-file(yaml)](https://github.com/devJRL/CodeLab-Docker-Kubernetes/blob/master/kubectl/2-ingress/codelab-2-ingress.yaml#L3)

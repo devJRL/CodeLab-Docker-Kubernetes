@@ -1,0 +1,26 @@
+# NOTE: https://github.com/devJRL/CodeLab-Docker-Kubernetes/tree/master/kubectl/2-ingress#ingress
+apiVersion: v1
+kind: Service
+metadata:
+  name: codelab-simple-loadbalance
+spec:
+  selector: # Select Label of Resource
+    app: codelab # https://github.com/devJRL/CodeLab-Docker-Kubernetes/blob/master/kubectl/1-pod/codelab-1-pod.yaml#L6
+  ports:
+    - port: 80
+      targetPort: 80 # https://github.com/devJRL/CodeLab-Docker-Kubernetes/blob/master/kubectl/1-pod/codelab-1-pod.yaml#L13
+
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: codelab-simple-ingress
+spec:
+  rules:
+    - host: codelab.simple # Routing Host
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: codelab-simple-loadbalance
+              servicePort: 80

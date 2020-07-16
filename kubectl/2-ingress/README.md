@@ -16,16 +16,24 @@ How to expose container on `Pod` in k8s?
       --for=condition=ready pod \
       --namespace ingress-nginx \
       --selector=app.kubernetes.io/component=controller
+      # HANGING.. IF INGRESS IS READY, YOU CAN SEE LIKE THIS
+      # pod/ingress-nginx-controller-68679c6884-q2mvb condition met
   ```
 
 - If you done, your cluster like below.
   ```bash
   # kubectl get [namepase|ns]
     kubectl get namespace | grep ingress
-    # ingress-nginx     Active   3m
+    # ingress-nginx     Active   2m
   ```
 
 ## Apply Ingress & Service
+
+- Apply `Pod` in previouce step with Menifest-file
+  ```bash
+  # kubectl apply -f {menifest-file.yaml}
+    kubectl apply -f ../1-pod/codelab-1-pod.yaml
+      # pod/codelab-simple-pod created
 
 - Apply `Igress` with Menifest-file
   ```bash
@@ -34,12 +42,6 @@ How to expose container on `Pod` in k8s?
       # service/codelab-simple-loadbalance created
       # ingress.extensions/codelab-simple-ingress created
   ```
-
-- Apply `Pod` in previouce step with Menifest-file
-  ```bash
-  # kubectl apply -f {menifest-file.yaml}
-    kubectl apply -f ../1-pod/codelab-1-pod.yaml
-      # pod/codelab-simple-pod created
   ```
 
 - Check
@@ -64,6 +66,7 @@ How to expose container on `Pod` in k8s?
 
 - Request to application on `curl` command.
   ```bash
+  # curl http[s]://{DOMAIN-HOST[:PORT]}[/URI] [-H {Host: routing.host}]
     curl http://localhost -H 'Host: codelab.simple'
   ```
 
@@ -81,6 +84,8 @@ How to expose container on `Pod` in k8s?
   </body>
   </html>
   ```
+
+ - The flow of `Ingress -> Service -> Pod` could be activated by concept of ['Label & Selector'](https://kubernetes.io/ko/docs/concepts/overview/working-with-objects/labels/#%EB%A0%88%EC%9D%B4%EB%B8%94-%EC%85%80%EB%A0%89%ED%84%B0).
 
 - The key of ingress is `Host`. To understand, check `-H` option of `curl` command with `host` rule of [`codelab-2-ingress.yaml`](https://github.com/devJRL/CodeLab-Docker-Kubernetes/blob/master/kubectl/2-ingress/codelab-2-ingress.yaml#L20).
 

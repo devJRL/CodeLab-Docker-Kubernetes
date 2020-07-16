@@ -5,10 +5,11 @@ metadata:
   name: codelab-simple-loadbalance
 spec:
   selector: # Select Label of Resource
-    app: codelab # https://github.com/devJRL/CodeLab-Docker-Kubernetes/blob/master/kubectl/1-pod/codelab-1-pod.yaml#L6
+    app: codelab # https://github.com/devJRL/CodeLab-Docker-Kubernetes/blob/master/kubectl/1-pod/codelab-1-pod.yaml#L7
   ports:
-    - port: 80
-      targetPort: 80 # https://github.com/devJRL/CodeLab-Docker-Kubernetes/blob/master/kubectl/1-pod/codelab-1-pod.yaml#L13
+    - name: codelab-simple-pod
+      port: 80
+      targetPort: 80 # https://github.com/devJRL/CodeLab-Docker-Kubernetes/blob/master/kubectl/1-pod/codelab-1-pod.yaml#L15
 
 ---
 apiVersion: extensions/v1beta1

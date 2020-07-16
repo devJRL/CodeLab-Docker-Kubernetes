@@ -8,10 +8,14 @@ metadata:
 spec:
   containers:
     #1
-    - name: web-apache
-      image: dev2sponge/codelab-k8s-apache:1.0.0
+    - name: web-nginx
+      image: dev2sponge/codelab-k8s-nginx:1.0.0
+      imagePullPolicy: Always
       ports:
         - containerPort: 80
+      env:
+        - name: BACKEND_HOST
+          value: localhost:8080
       resources:
         requests:
           memory: "64M" # = 64 MB
@@ -22,6 +26,7 @@ spec:
     #2
     - name: was-tomcat
       image: dev2sponge/codelab-k8s-tomcat:1.0.0
+      imagePullPolicy: Always
       ports:
         - containerPort: 8080
       resources:

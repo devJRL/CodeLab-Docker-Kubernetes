@@ -66,6 +66,12 @@ docker tag codelab-k8s-tomcat:1.0.0 dev2sponge/codelab-k8s-tomcat:1.0.0
 docker push dev2sponge/codelab-k8s-tomcat:1.0.0
 ```
 
+### 4. Differnet Image was pushed
+
+- dev2sponge/codelab-k8s-nginx:1.0.0
+- dev2sponge/codelab-k8s-tomcat:1.0.0
+- dev2sponge/codelab-k8s-tomcat:1.0.1 `< For Rolling-out`
+
 fin.
 
 [Go home](https://github.com/devJRL/CodeLab-Docker-Kubernetes#codelab-docker-kubernetes))

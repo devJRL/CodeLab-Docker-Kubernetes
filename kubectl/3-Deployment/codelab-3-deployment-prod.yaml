@@ -1,0 +1,76 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: codelab-simple-ingress-prod
+spec:
+  rules:
+    - host: codelab.simple.prod # Routing Host
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: codelab-simple-loadbalance-prod
+              servicePort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: codelab-simple-loadbalance-prod
+spec:
+  selector:
+    app: codelab
+    release: prod
+  ports:
+    - name: codelab-simple-deployment-prod
+      port: 80 # PROD-EXPOSE-PORT
+      targetPort: 80
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: codelab-simple-deployment-prod
+  labels:
+    app: codelab
+    release: prod
+spec:
+  replicas: 4 # change here!
+  selector:
+    matchLabels:
+      app: codelab
+      release: prod
+  template: # Replicate pods with same metadata and spec.
+    metadata:
+      labels:
+        app: codelab
+        release: prod
+    spec:
+      containers:
+        #1
+        - name: web-nginx
+          image: dev2sponge/codelab-k8s-nginx:1.0.0
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+          env:
+            - name: BACKEND_HOST
+              value: localhost:8080
+          resources:
+            requests:
+              memory: "64M" # = 64 MB
+              cpu: "250m" # = 0.25 vCPU
+            limits:
+              memory: "128M" # = 128 MB
+              cpu: "500m" # = 0.5 vCPU
+        #2
+        - name: was-tomcat
+          image: dev2sponge/codelab-k8s-tomcat:1.0.1 # change here!
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          resources:
+            requests:
+              memory: "64Mi" # = 2^26 byte (129MB)
+              cpu: "250m" # = 0.25 vCPU
+            limits:
+              memory: "128Mi" # = 2^27 byte (259MB)
+              cpu: "500m" # = 0.5 vCPU

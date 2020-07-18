@@ -1,10 +1,14 @@
 # Information of docker images
 
 - `notice!` Just to use study. Don't be use in production.
-- [gihyodocker/nginx](hhttps://hub.docker.com/r/gihyodocker/nginx)
+- [dev2sponge/codelab-k8s-nginx](https://hub.docker.com/repository/docker/dev2sponge/codelab-k8s-nginx)
 - [dev2sponge/codelab-k8s-tomcat](https://hub.docker.com/repository/docker/dev2sponge/codelab-k8s-tomcat)
 
-## 1. How to build Tomcat (for WAS-Tier)
+## 1. How to build Nginx (for WEB-Tier)
+
+`pending..`
+
+## 2. How to build Tomcat (for WAS-Tier)
 
 
 ```bash

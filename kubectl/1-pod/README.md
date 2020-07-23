@@ -26,7 +26,7 @@ How to deal with container on `Pod` with `YAML`(Menifest-file)?
 
 ```bash
 # kubectl logs {metadata.name} -c {containers.name} [-f]
-  kubectl logs codelab-simple-pod -c web-apache -f # tailing
+  kubectl logs codelab-simple-pod -c web-nginx -f  # tailing
   kubectl logs codelab-simple-pod -c web-tomcat    # casting
 ```
 
@@ -36,10 +36,10 @@ How to deal with container on `Pod` with `YAML`(Menifest-file)?
   ```bash
   # [TYPE.1]
   # kubeclt exec -ti {menifest-file.yaml} {command} -c {containers.name}
-    kubectl exec -ti  codelab-1-pod.yaml  /bin/bash -c web-apache
-      # root@codelab-simple-pod:/usr/local/apache2# echo 'Hello, apache!'
-      # Hello, apache!
-      # root@codelab-simple-pod:/usr/local/apache2# exit
+    kubectl exec -ti  codelab-1-pod.yaml  /bin/bash -c web-nginx
+      # root@codelab-simple-pod:/usr/local/nginx2# echo 'Hello, nginx!'
+      # Hello, nginx!
+      # root@codelab-simple-pod:/usr/local/nginx2# exit
   ```
 
 - type2: on metadata

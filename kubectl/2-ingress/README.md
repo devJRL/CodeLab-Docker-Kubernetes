@@ -80,7 +80,7 @@ How to expose container on `Pod` in k8s?
   <body>
     <h1>WEB-Tier</h1>
     <h2>Hello, docker!</h2>
-    <h3>Here is apache-container.</h3>
+    <h3>Here is nginx-container.</h3>
   </body>
   </html>
   ```

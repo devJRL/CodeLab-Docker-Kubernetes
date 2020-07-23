@@ -78,7 +78,7 @@ How to deal with workload on `Deploy` with `YAML`(Menifest-file)?
   <body>
     <h1>WEB-Tier</h1>
     <h2>Hello, docker!</h2>
-    <h3>Here is apache-container.</h3>
+    <h3>Here is nginx-container.</h3>
   </body>
 
   </html>

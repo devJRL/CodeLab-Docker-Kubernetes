@@ -16,14 +16,14 @@
 cd was-tomcat
 ```
 
-### Build apache image
+### Build nginx image
 ```bash
 # BUILD
 docker build -t codelab-k8s-tomcat:1.0.0 .
 # CONFIRM
 docker images | grep codelab
   # codelab-k8s-tomcat    1.0.0   6dbb65309318   3 minutes ago   166MB
-  # codelab-k8s-apache    1.0.0   6dbb65309318   9 seconds ago    166MB
+  # codelab-k8s-nginx    1.0.0   6dbb65309318   9 seconds ago    166MB
 ```
 
 ### Check image with running container
@@ -35,7 +35,7 @@ codelab-k8s-tomcat:1.0.0
 # CONFIRM
 docker container ls | grep codelab
   # 4d5cd6954bf3        codelab-k8s-tomcat:1.0.0   "httpd-foreground"   5 seconds ago       Up 4 seconds       80/tcp, 0.0.0.0:4444->8080/tcp   codelab-was-tomcat
-  # 082ea076f72d        codelab-k8s-apache:1.0.0   "httpd-foreground"   26 minutes ago      Up 3 minutes       0.0.0.0:3333->80/tcp            codelab-web-apache
+  # 082ea076f72d        codelab-k8s-nginx:1.0.0   "httpd-foreground"   26 minutes ago      Up 3 minutes       0.0.0.0:3333->80/tcp            codelab-web-nginx
 
   # CONNECT ON BROWSER, THEN YOU CAN SEE LIKE THIS
   # http://localhost:4444/was.html
